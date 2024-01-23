@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal</title>
+</head>
+Animals
+<body>
+{% for i in new_animal %}
+<h3> {{i.id}} </h3>
+<h3> name: <a href="{{i.id}}"> {{i.name}} </a></h3>
+
+<h2><a href="/delete-animal/{{i.id}}">Delete</a></h2>
+{% endfor %}
+<h1>Create Animal</h1>
+<form action="animal" method="POST">
+{% csrf_token %}
+    {{ form.as_p }}
+<label for="name"> Name:</label>
+<input type="text" id="name" name="name">
+<br>
+<label for="age"> Age:</label>
+<input type="number" id="age" name="age">
+<br>
+<label for="breed"> Breed:</label>
+<input type="text" id="breed" name="breed">
+<br>
+<input type="submit" value="add">
+</form>
+
+</body>
+</html>

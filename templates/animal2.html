@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal</title>
+</head>
+<body>
+{% for i in new_animal %}
+<h3>{{ i.id }}</h3>
+<h3>Name: <a href="{{i.id}}"> {{ i.name }}</a></h3>
+<h3>Age: {{ i.age }}</h3>
+<h3>Breed: {{ i.breed }}</h3>
+
+<a href="/delete_animal_by_name/{{i.name}}">Delete</a>
+{% endfor %}
+
+
+</body>
+</html>

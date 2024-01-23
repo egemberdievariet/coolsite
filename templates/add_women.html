@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление статьи</title>
+</head>
+<body>
+{% for i in menu %}
+    <li><a href="{% url i.url %}">{{i.name}}</a></li>
+{% endfor %}
+<hr>
+<form action="{% url 'add-post' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Добавить </button>
+</form>
+
+</body>
+</html>

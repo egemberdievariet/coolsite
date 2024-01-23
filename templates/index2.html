@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Women</title>
+</head>
+<h1>Women</h1>
+<body>
+{% for i in new_women %}
+<h3>{{ i }}</h3>
+<h3>{{ i.age }}</h3>
+<h3>{{ i.nationality }}</h3>
+<h3>{{ i.bio }}</h3>
+<h3>{{ i.image }}</h3>
+<h3>{{ i.category }}</h3>
+<hr>
+{% endfor %}
+</body>
+</html>
