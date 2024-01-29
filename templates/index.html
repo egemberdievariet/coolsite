@@ -1,36 +1,18 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Women</title>
-</head>
-<body>
-<h3>Women!</h3>
-<ul>
-{% for i in menu %}
-    <li><a href="{% url i.url %}">{{i.name}}</a></li>
-{% endfor %}
-    <hr>
-{% for i in new_women %}
-    {% if i.image %}
-    <p><img src="{{i.image.url}} " alt="" height="400 px" width="400"></p>
-    {% endif %}
+{% extends 'base.html' %}
 
-    <br>
-    {{ i.get_full_name }}
-    <hr>
+{% block content %}
+
+{% for i in women %}
+    {% if i.image %}
+    <img src="{{i.image.url}}" alt="" height="200px" width="300px">
+    {% endif %}
+    <h2>{{ i.get_full_name }}</h2>
     <form action="{% url 'delete-women' i.id %}" method="post">
         {% csrf_token %}
         <button type="submit">Удалить</button>
     </form>
-    <a href="{% url 'detail-women' i.id %}">Читать пост</a>
+    <a href="{% url 'detail-women' i.slug %}">Читать пост</a>
     <hr>
+    {% endfor %}
 
-{% endfor %}
-
-</ul>
-</body>
-</html>
+{% endblock content %}
