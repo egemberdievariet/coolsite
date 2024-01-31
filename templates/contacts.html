@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Contacts</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content%}
 <h1>Contacts</h1>
-{% for i in menu %}
-    <li><a href="{% url i.url %}">{{i.name}}</a></li>
-{% endfor %}
-
-<h2>For critics and offers</h2>
-<h3>egemberdievariet@gmail.com</h3>
-<h3>0553278151</h3>
-<h3><a href="https://www.instagram.com/arietegemberdiev?igsh=M21xOG1xZ2Y0b2k1&utm_source=qr">Our instagram</a></h3>
-
-
-</body>
-</html>
+{% endblock content%}
